@@ -1,7 +1,9 @@
+import { Typography } from '@/modules/Core/components/Typography'
+
 export default function Home() {
   return (
     <main>
-      <h1>Flickle</h1>
+      <Typography text='Flickle' element='h1' />
     </main>
   )
 }
