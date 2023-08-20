@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:styles": "stylelint --fix '**/*.module.scss'",
+    "prepare": "husky install",
+    "typecheck": "tsc --module esnext --noEmit"
   },
   "dependencies": {
     "@types/node": "20.4.5",
@@ -20,7 +23,23 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "lint-staged": "^14.0.0",
     "prettier": "3.0.1",
-    "sass": "^1.66.1"
+    "sass": "^1.66.1",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard-scss": "^10.0.0",
+    "stylelint-order": "^6.0.3",
+    "husky": "^8.0.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix"
+    ],
+    "*.{js,jsx,ts,tsx,css,scss,json,md,html,yml,yaml,}": [
+      "prettier --write"
+    ]
   }
 }
