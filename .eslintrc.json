@@ -1,3 +1,99 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:prettier/recommended", "prettier"]
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "plugins": ["react", "typescript-sort-keys", "sort-destructure-keys"],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "prettier/prettier": "error",
+    "no-restricted-globals": ["error", "isFinite", "isNaN"],
+    "typescript-sort-keys/interface": "error",
+    "typescript-sort-keys/string-enum": "error",
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "ignoreCase": true
+      }
+    ],
+    "sort-destructure-keys/sort-destructure-keys": [
+      "error",
+      {
+        "caseSensitive": false
+      }
+    ],
+    "sort-keys": ["error", "asc", { "caseSensitive": false }],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "react-i18next",
+            "message": "Please use next-i18next instead."
+          },
+          {
+            "name": "i18next",
+            "message": "Please use next-i18next instead."
+          },
+          {
+            "name": "next-i18next",
+            "importNames": ["withTranslation"],
+            "message": "Please use useTranslation hook instead. https://github.com/i18next/next-i18next#usetranslation see link"
+          }
+        ]
+      }
+    ],
+    "import/order": [
+      "warn",
+      {
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "newlines-between": "always",
+        "warnOnUnassignedImports": true,
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "**/?(*)Core{,/**}",
+            "group": "internal",
+            "position": "after"
+          },
+
+          {
+            "pattern": "**/?(*)User{,/**}",
+            "group": "internal",
+            "position": "after"
+          },
+
+          {
+            "pattern": "**/?(*)Flick{,/**}",
+            "group": "internal",
+            "position": "after"
+          },
+
+          {
+            "pattern": "{.,..}/**/*.scss",
+            "group": "object",
+            "position": "after"
+          },
+
+          {
+            "pattern": "**/?(*)styles{,/**}",
+            "group": "object",
+            "position": "after"
+          }
+        ]
+      }
+    ]
+  }
 }
