@@ -4,9 +4,28 @@
     "plugin:prettier/recommended",
     "prettier"
   ],
-  "plugins": ["react", "typescript-sort-keys", "sort-destructure-keys"],
+  "parserOptions": {
+    "ecmaVersion": 13,
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "react",
+    "typescript-sort-keys",
+    "sort-destructure-keys",
+    "@typescript-eslint"
+  ],
   "parser": "@typescript-eslint/parser",
   "rules": {
+    "max-params": ["error", 3],
+    "no-duplicate-imports": 1,
+    "no-restricted-syntax": [
+      1,
+      {
+        "selector": "ExportDefaultDeclaration",
+        "message": "Prefer named exports."
+      }
+    ],
+    "no-tabs": 1,
     "prettier/prettier": "error",
     "no-restricted-globals": ["error", "isFinite", "isNaN"],
     "typescript-sort-keys/interface": "error",
@@ -42,6 +61,37 @@
             "message": "Please use useTranslation hook instead. https://github.com/i18next/next-i18next#usetranslation see link"
           }
         ]
+      }
+    ],
+    "@typescript-eslint/naming-convention": [
+      1,
+
+      {
+        "selector": "variable",
+        "format": ["StrictPascalCase"],
+
+        "prefix": [
+          "are",
+          "can",
+          "did",
+          "does",
+          "has",
+          "have",
+          "is",
+          "should",
+          "will"
+        ],
+        "types": ["boolean"]
+      },
+      {
+        "selector": "typeAlias",
+        "format": ["StrictPascalCase"],
+        "prefix": ["T"]
+      },
+      {
+        "selector": "interface",
+        "format": ["StrictPascalCase"],
+        "prefix": ["I"]
       }
     ],
     "import/order": [
@@ -95,5 +145,13 @@
         ]
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["app/**/*.tsx"],
+      "rules": {
+        "no-restricted-syntax": "off"
+      }
+    }
+  ]
 }
