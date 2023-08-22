@@ -5,8 +5,8 @@ import { ReactNode } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Flickle',
   description: 'Flick Pick Chick',
+  title: 'Flickle',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {

@@ -1,13 +1,11 @@
 import { createElement } from 'react'
 
-interface TypographyProps {
-  text: string
+interface ITypographyProps {
   element?: string
+  text: string
 }
 
 export const Typography = ({
-  text,
   element = 'p',
-}: TypographyProps): JSX.Element => {
-  return createElement(element, {}, text)
-}
+  text,
+}: ITypographyProps): JSX.Element => createElement(element, {}, text)

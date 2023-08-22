@@ -1,6 +1,6 @@
 import { createElement, Fragment, ReactElement } from 'react'
 
-interface ConditionProps {
+interface IConditionProps {
   children: ReactElement
   match: boolean
 }
@@ -8,7 +8,7 @@ interface ConditionProps {
 export const Condition = ({
   children,
   match,
-}: ConditionProps): JSX.Element | null => {
+}: IConditionProps): JSX.Element | null => {
   if (match) {
     return createElement(Fragment, {}, children)
   }
