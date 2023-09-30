@@ -1,4 +1,4 @@
-import { createElement } from 'react'
+import { createElement, ReactElement } from 'react'
 
 interface ITypographyProps {
   element?: string
@@ -8,4 +8,4 @@ interface ITypographyProps {
 export const Typography = ({
   element = 'p',
   text,
-}: ITypographyProps): JSX.Element => createElement(element, {}, text)
+}: ITypographyProps): ReactElement => createElement(element, {}, text)

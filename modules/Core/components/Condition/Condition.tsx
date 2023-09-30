@@ -8,7 +8,7 @@ interface IConditionProps {
 export const Condition = ({
   children,
   match,
-}: IConditionProps): JSX.Element | null => {
+}: IConditionProps): ReactElement | null => {
   if (match) {
     return createElement(Fragment, {}, children)
   }
