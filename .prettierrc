@@ -4,6 +4,7 @@
   "tabWidth": 2,
   "jsxSingleQuote": true,
   "trailingComma": "all",
+  "endOfLine": "lf",
   "overrides": [
     {
       "files": "*.scss",
